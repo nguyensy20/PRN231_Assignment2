@@ -1,3 +1,4 @@
+using API.OutputFormatter;
 using Assignment2.Models;
 using BussinessObjects;
 using Microsoft.AspNetCore.OData;
@@ -10,7 +11,14 @@ var modelBuilder = new ODataConventionModelBuilder();
 modelBuilder.EntitySet<MedicalFacility>("MedicalFacilities");
 modelBuilder.EntitySet<ServicePriceList>("ServicePriceLists");
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddMvcOptions(
+    options =>
+    {
+        options.RespectBrowserAcceptHeader = true;
+        options.OutputFormatters.Add(new CsvOutputFormatter());
+    }
+);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

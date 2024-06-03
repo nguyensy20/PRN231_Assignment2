@@ -47,7 +47,7 @@ namespace BussinessObjects.Migrations
 
                     b.HasKey("FacilityId");
 
-                    b.ToTable("Facilities");
+                    b.ToTable("MedicalFacilities");
 
                     b.HasData(
                         new
@@ -162,7 +162,7 @@ namespace BussinessObjects.Migrations
 
                     b.HasKey("ServiceId");
 
-                    b.ToTable("ServicePrices");
+                    b.ToTable("ServicePriceLists");
 
                     b.HasData(
                         new
