@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BussinessObjects.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240603114317_InitDb")]
+    [Migration("20240603154850_InitDb")]
     partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,7 +49,7 @@ namespace BussinessObjects.Migrations
 
                     b.HasKey("FacilityId");
 
-                    b.ToTable("Facilities");
+                    b.ToTable("MedicalFacilities");
 
                     b.HasData(
                         new
@@ -164,7 +164,7 @@ namespace BussinessObjects.Migrations
 
                     b.HasKey("ServiceId");
 
-                    b.ToTable("ServicePrices");
+                    b.ToTable("ServicePriceLists");
 
                     b.HasData(
                         new

@@ -9,7 +9,7 @@ namespace BussinessObjects.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Facilities",
+                name: "MedicalFacilities",
                 columns: table => new
                 {
                     FacilityId = table.Column<int>(type: "int", nullable: false)
@@ -22,11 +22,11 @@ namespace BussinessObjects.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Facilities", x => x.FacilityId);
+                    table.PrimaryKey("PK_MedicalFacilities", x => x.FacilityId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ServicePrices",
+                name: "ServicePriceLists",
                 columns: table => new
                 {
                     ServiceId = table.Column<int>(type: "int", nullable: false)
@@ -37,11 +37,11 @@ namespace BussinessObjects.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ServicePrices", x => x.ServiceId);
+                    table.PrimaryKey("PK_ServicePriceLists", x => x.ServiceId);
                 });
 
             migrationBuilder.InsertData(
-                table: "Facilities",
+                table: "MedicalFacilities",
                 columns: new[] { "FacilityId", "FacilityName", "Level", "NoDoctors", "NoStaffs", "PrivateFacility" },
                 values: new object[,]
                 {
@@ -58,7 +58,7 @@ namespace BussinessObjects.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "ServicePrices",
+                table: "ServicePriceLists",
                 columns: new[] { "ServiceId", "ServiceLevel", "ServiceName", "ServicePrice" },
                 values: new object[,]
                 {
@@ -78,10 +78,10 @@ namespace BussinessObjects.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Facilities");
+                name: "MedicalFacilities");
 
             migrationBuilder.DropTable(
-                name: "ServicePrices");
+                name: "ServicePriceLists");
         }
     }
 }

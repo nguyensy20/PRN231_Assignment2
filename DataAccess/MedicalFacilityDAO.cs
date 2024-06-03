@@ -1,12 +1,6 @@
 ﻿using Assignment2.Models;
 using BussinessObjects;
-using BussinessObjects.DTOs;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess
 {
@@ -22,7 +16,6 @@ namespace DataAccess
         {
             _context = context;
         }
-
         public List<MedicalFacility> GetMedicalFacilities()
         {
             try
@@ -31,8 +24,9 @@ namespace DataAccess
                 return facilities;
             }
 
-            catch (Exception e) { 
-                throw new Exception(e.Message); 
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
         public List<MedicalFacility> GetMedicalFacilitiesByName(string text)
@@ -60,18 +54,10 @@ namespace DataAccess
                 throw new Exception(e.Message);
             }
         }
-        public void AddMediicalFacility(MedicalFacilityDTO request) {
+        public void AddMedicalFacility(MedicalFacility facility)
+        {
             try
             {
-                var facility = new MedicalFacility
-                {
-                    FacilityName = request.FacilityName,
-                    Level = request.Level,
-                    NoDoctors = request.NoDoctors,
-                    NoStaffs = request.NoStaffs,
-                    PrivateFacility = request.PrivateFacility,
-                };
-
                 _context.MedicalFacilities.Add(facility);
                 _context.SaveChanges();
             }
@@ -92,7 +78,8 @@ namespace DataAccess
                 throw new Exception(e.Message);
             }
         }
-        public void DeleteMedicalFacility(MedicalFacility facility) {
+        public void DeleteMedicalFacility(MedicalFacility facility)
+        {
             try
             {
                 _context.MedicalFacilities.Remove(facility);
